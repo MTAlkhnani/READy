@@ -889,10 +889,11 @@ section{
 	overflow: hidden;
 }
 
-.box-top {
-	height: 125px;
-	background-color: black;
-}
+.box-top img {
+    height: 300px;
+      
+  }
+  
 
 
 

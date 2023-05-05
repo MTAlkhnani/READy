@@ -115,7 +115,80 @@
         
         <div class="box-container">
             <div class="row">
+                <% books.forEach(book => { %>
                     <div class="box">
+                      <a href="Book">
+                        <div class="box-top"><img src="<%= book.imgSrc %>" alt=""></div>
+                        <div class="box-bottom">
+                          <div class="box-info">
+                            <p>Name: <%= book.nameOfBook %></p>
+                            <p>Price: $<%=book.priceOfBook %></p>
+                            <p><%= book.rateOfBook %> <span class="rating-stars">
+                              <i class="fa fa-star"></i>
+                            </span></p>
+                            <hr class="hr-content">
+                            <button id="bt1" disabled>Add to cart</button>
+                            <button disabled>Add to wishlist</button>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  <% }) %>
+<!--                
+                <div class="box">
+                    <a href="Book">
+                    <div class="box-top"><img src="/images/book-6.png" alt=""></div>
+                    <div class="box-bottom">
+                        <div class="box-info">
+                            <p>Name: Book Name</p>
+                            <p>Price: $35</p>
+                            <p>4 <span class="rating-stars">
+                                <i class="fa fa-star"></i>
+                              </span></p>
+                            <hr class="hr-content">
+                            <button id="bt1" disabled>Add to cart</button>
+                            <button disabled>Add to wishlist</button>
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <div class="box">
+                    <a href="Book">
+                    <div class="box-top"><img src="/images/book-7.png" alt=""></div>
+                    <div class="box-bottom">
+                        <div class="box-info">
+                            <p>Name: Book Name</p>
+                            <p>Price: $40</p>
+                            <p>4 <span class="rating-stars">
+                                <i class="fa fa-star"></i>
+                              </span></p> 
+                            <hr class="hr-content">
+                            <button id="bt1" disabled>Add to cart</button>
+                            <button disabled>Add to wishlist</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="box">
+                <a href="Book">
+                <div class="box-top"><img src="/images/book-7.png" alt=""></div>
+                <div class="box-bottom">
+                    <div class="box-info">
+                        <p>Name: Book Name</p>
+                        <p>Price: $40</p>
+                        <p>4 <span class="rating-stars">
+                            <i class="fa fa-star"></i>
+                          </span></p> 
+                        <hr class="hr-content">
+                        <button id="bt1" disabled>Add to cart</button>
+                        <button disabled>Add to wishlist</button>
+                    </div>
+                </div>
+            </a>
+        </div> -->
+        
+        </div>
+                    <!-- <div class="box">
                         <a href="Book">
 
                         <div class="box-top"></div>
@@ -215,8 +288,8 @@
                                 <button id="bt1" disabled>Add to cart</button>
                                 <button disabled>Add to wishlist</button>
                             </div>
-                        </div>
-                    </a>
+                        </div> -->
+                    <!-- </a> -->
                 </div>
             </div>
         </div>

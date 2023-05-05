@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
-
 const express = require('express')
 const path = require('path')
 const bcrypt = require('bcrypt')
@@ -12,7 +8,7 @@ const session = require('express-session')
 const port = 3001
 const mongoose = require('mongoose')
 const User = require('./models/user')
-
+const Book = require('./models/book')
 
 uri = 'mongodb+srv://admin:admin@cluster0.moh5hyj.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(uri);
@@ -140,7 +136,16 @@ app.get('/cart', ensureAuthenticated, (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-    res.render('books.ejs')
+    Book.find({})
+    .then((books) => {
+      res.render('books.ejs', {
+        books: books
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 })
 
 app.get('/book', (req, res) => {
