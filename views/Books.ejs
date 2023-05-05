@@ -115,25 +115,64 @@
         
         <div class="box-container">
             <div class="row">
-                <% books.forEach(book => { %>
-                    <div class="box">
-                      <a href="Book">
-                        <div class="box-top"><img src="<%= book.imgSrc %>" alt=""></div>
-                        <div class="box-bottom">
-                          <div class="box-info">
-                            <p>Name: <%= book.nameOfBook %></p>
-                            <p>Price: $<%=book.priceOfBook %></p>
-                            <p><%= book.rateOfBook %> <span class="rating-stars">
-                              <i class="fa fa-star"></i>
-                            </span></p>
-                            <hr class="hr-content">
-                            <button id="bt1" disabled>Add to cart</button>
-                            <button disabled>Add to wishlist</button>
-                          </div>
-                        </div>
-                      </a>
+              <% books.forEach(book => { %>
+                <div class="box">
+                  <a href="Book">
+                    <div class="box-top"><img src="<%= book.imgSrc %>" alt=""></div>
+                    <div class="box-bottom">
+                      <div class="box-info">
+                        <p>Name: <%= book.nameOfBook %></p>
+                        <p>Price: $<%=book.priceOfBook %></p>
+                        <p><%= book.rateOfBook %> <span class="rating-stars">
+                          <i class="fa fa-star"></i>
+                        </span></p>
+                        <hr class="hr-content">
+                        <button id="bt1" disabled>
+                          <i class="fa fa-shopping-cart"></i>
+                        </button>
+                        <button id="bt2" disabled>
+                          <i class="fa fa-heart"></i>
+                        </button>
+                      </div>
                     </div>
-                  <% }) %>
+                  </a>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+          
+          <style>
+            #bt1 {
+              background-color: green;
+              color: white;
+              padding: 10px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+          
+            #bt1:hover {
+              background-color: darkgreen;
+            }
+          
+            #bt2 {
+              background-color: green;
+              color: white;
+              padding: 10px;
+              border: none;
+              border-radius: 3px; /* adjust this value to change the roundness of the button */
+              cursor: pointer;
+            }
+          
+            #bt2:hover {
+              background-color: red;
+            }
+          
+            .fa-shopping-cart,
+            .fa-heart {
+              margin-right: 5px;
+            }
+          </style>
 <!--                
                 <div class="box">
                     <a href="Book">
