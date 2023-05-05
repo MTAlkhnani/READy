@@ -104,6 +104,45 @@ section{
     color:var(--green);
 }
 
+.cart-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.cart-btn:hover {
+    background-color: #3e8e41;
+    cursor: pointer;
+}
+.cart-btn:focus {
+    outline: none;
+}
+.cart-btn i {
+    margin-right: 5px;
+}
+
+.wishlist-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.wishlist-btn:hover {
+    background-color: #f44336;
+    cursor: pointer;
+}
+.wishlist-btn:focus {
+    outline: none;
+}
+.wishlist-btn i {
+    margin-right: 5px;
+}
 .header .header-1 .search-form{
     width:50rem;
     height:5rem;

@@ -1,5 +1,11 @@
 const mongoose = require('mongoose')
 
+const bookSchema = new mongoose.Schema({
+    nameOfBook: String,
+    priceOfBook: String,
+    rateOfBook: Number,
+})
+
 const userSchema = new mongoose.Schema({
     name: String,
     phone: String,
@@ -11,16 +17,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    orders: [{
-        nameOfBook: String,
-        priceOfBook: String,
-        ratingOfBook: Number,
-    }],
-    wishlist: [{
-        nameOfBook: String,
-        priceOfBook: String,
-        ratingOfBook: Number,
-    }],
+    orders: [bookSchema],
+    wishlist: [bookSchema],
 })
 
 module.exports = User = mongoose.model("users", userSchema)

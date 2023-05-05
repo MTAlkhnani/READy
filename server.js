@@ -73,7 +73,7 @@ function ensureAuthenticated(req, res, next) {
 
   app.get('/', ensureAuthenticated, async (req, res) => {
     // console.log(req.user instanceof mongoose.Model);
-    res.render('home', { name: req.user.name });
+    res.render('home', { user: req.user });
   });
   
 app.get('/login', (req, res) => {
