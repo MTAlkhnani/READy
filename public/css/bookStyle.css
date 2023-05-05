@@ -934,7 +934,36 @@ body{
    .col-2 {
        flex-basis: 70%;
        padding-left: 40%;
+
    }
+   .btn {
+    background-color: green;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: green;
+    border: 2px solid green;
+}
+.btn-wishlist {
+    background-color: green;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-wishlist:hover {
+    background-color: #f00;
+    color: #fff;
+    border: 2px solid #f00;
+}
    @media (min-width: 1200px) {
    .book-parent {
        flex-direction: row;
