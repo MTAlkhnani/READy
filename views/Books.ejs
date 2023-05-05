@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="/css/BooksStyle.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <section class="header-1">
+
+        <a href="/" class="logo"> <i class="fas fa-book"></i> READy </a>
+
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="wishlist" class="fas fa-heart"></a>
+            <a href="cart" class="fas fa-shopping-cart"></a>
+            <a id="login-btn" class="fas fa-user" href="login"></a>
+        </div>
+
+    </section>
+
+    <div class="header-2">
+        <nav class="navbar">
+
+        <a href="/">HOME</a>
+        <a href="/">ABOUT US</a>
+        <a href="books">BOOKS</a>
+        <a href="/">NEW REALSES</a>
+        <a href="/">BEST SALES</a>
+        <a href="contactUS">CONTACT US</a>
+        <!-- <a href="con.html">CONTACT US</a> -->
+        </nav>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+<!-- Books section starts  -->
+
+
+    <div class="container">
+        <div class="filter-coontainer">
+            <div class="filter">
+                <h2>Filter Result</h2>
+                <div class="div-hr"></div>
+                <div class="summary-price">
+                    <details>
+                        <summary><span style="font-size: 16px;">Sort</span></summary>
+                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Price: Low to High</span><br>
+                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Price: High to Low</span><br> 
+                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Rate: Low to High</span><br>
+                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Rate: High to Low</span><br>
+                    </details>
+                </div>
+                <div class="div-hr"></div>
+                <div class="summary-rating">
+    
+                    <details>
+                        <summary><span style="font-size: 16px;">rating</span></summary>
+                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </span><br>
+                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </span><br> 
+                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </span><br>
+                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                          </span><br>
+                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
+                            <i class="fa fa-star"></i>
+                          </span>
+                    </details>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box-container">
+            <div class="row">
+                    <div class="box">
+                        <a href="Book">
+
+                        <div class="box-top"></div>
+                        <div class="box-bottom">
+                            <div class="box-info">
+                                <p>Name: Book Name</p>
+                                <p>Price: $10</p>
+                                <hr class="hr-content">
+                                <button id="bt1" disabled>Add to cart</button>
+                                <button disabled>Add to wishlist</button>
+                                
+                                
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="Book">
+                        <div class="box-top"></div>
+                        <div class="box-bottom">
+                            <div class="box-info">
+                                <p>Name: Book Name</p>
+                                <p>Price: $15</p>
+                                <hr class="hr-content">
+                                <button id="bt1" disabled>Add to cart</button>
+                                <button disabled>Add to wishlist</button>
+                            </div>
+                           
+                            
+                        </div>
+                    </a>
+                    </div>
+                    <div class="box">
+                        <a href="Book">
+                        <div class="box-top"></div>
+                        <div class="box-bottom">
+                            <div class="box-info">
+                                <p>Name: Book Name</p>
+                                <p>Price: $20</p>
+                                <hr class="hr-content">
+                                <button id="bt1" disabled>Add to cart</button>
+                                <button disabled>Add to wishlist</button>
+                            </div>
+                        </div>
+                        <a href="Book">
+                    </div>
+                    <div class="box">
+                        <a href="Book">
+                        <div class="box-top"></div>
+                        <div class="box-bottom">
+                            <div class="box-info">
+                                <p>Name: Book Name</p>
+                                <p>Price: $25</p>
+                                <hr class="hr-content">
+                                <button id="bt1" disabled>Add to cart</button>
+                                <button disabled>Add to wishlist</button>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="Book">
+                        <div class="box-top"></div>
+                        <div class="box-bottom">
+                            <div class="box-info">
+                                <p>Name: Book Name</p>
+                                <p>Price: $30</p>
+                                <hr class="hr-content">
+                                <button id="bt1" disabled>Add to cart</button>
+                                <button disabled>Add to wishlist</button>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="Book">
+                        <div class="box-top"></div>
+                        <div class="box-bottom">
+                            <div class="box-info">
+                                <p>Name: Book Name</p>
+                                <p>Price: $35</p>
+                                <hr class="hr-content">
+                                <button id="bt1" disabled>Add to cart</button>
+                                <button disabled>Add to wishlist</button>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="box">
+                        <a href="Book">
+                        <div class="box-top"></div>
+                        <div class="box-bottom">
+                            <div class="box-info">
+                                <p>Name: Book Name</p>
+                                <p>Price: $40</p>
+                                <hr class="hr-content">
+                                <button id="bt1" disabled>Add to cart</button>
+                                <button disabled>Add to wishlist</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- books section ends  -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="credit"> created by <span>SWE363 Students</span> | all rights reserved! </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+<!-- custom js file link  -->
+<script src="/js/script.js"></script>
+
+</body>
+</html>

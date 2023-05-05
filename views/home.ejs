@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>READy</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="/css/pstyle.css">
+
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <section class="header-1">
+
+        <a href="/" class="logo"> <i class="fas fa-book"></i> READy </a>
+
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="wishlist" class="fas fa-heart"></a>
+            <a href="cart" class="fas fa-shopping-cart"></a>
+            <a id="login-btn" class="fas fa-user" href="login"></a> <!-- Because of ejs these has to be changed... from login.ejs to just login -->
+        </div>
+
+    </section>
+
+    <div class="header-2">
+        <nav class="navbar">
+
+        <a href="/">HOME</a>
+        <a href="#aboutus">ABOUT US</a>
+        <a href="books">BOOKS</a>
+        <a href="#newRealses">NEW REALSES</a>
+        <a href="#bestsellers">BEST SALES</a>
+        <a href="contactUS">CONTACT US</a>
+        </nav>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+
+<!-- home section starts  -->
+
+<div class="home-container">
+    
+    <section class="home" id="home">
+
+        <div class="row">
+
+          <div class="content">
+              <h3>Welcome <%= name %> </h3>
+              <p>At READy, we believe that there's nothing quite like the feeling of getting lost in a good book. That's why we've curated an extensive collection of literature, from classic novels to modern bestsellers, to ensure that every reader can find something that speaks to them. </p>
+              <a href="Books" class="btn">shop now</a>
+          </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+
+
+<section class="featured" id="newRealses">
+
+    <h1 class="heading"> <span>New Releases</span> </h1>
+
+    <div class="swiper featured-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-1.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                        
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-2.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-3.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-4.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-5.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-6.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-7.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-8.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-9.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="Book">
+                    <div class="image">
+                        <img src="/images/book-10.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+
+
+<section class="featured" id="bestsellers">
+
+    <h1 class="heading"> <span>Best Sales</span> </h1>
+
+    <div class="swiper featured-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-1.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-2.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-3.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-4.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-5.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-6.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-7.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-8.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-9.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="swiper-slide box">
+
+                <a href="book">
+                    <div class="image">
+                        <img src="/images/book-10.png" alt="">
+                    </div>
+                    <div class="content">
+    
+                        <div class="price">$15.99 <span>$20.99</span></div>
+                        <a href="#" class="btn">add to cart</a>
+                        <a href="#" class="btn">add to wishlist</a>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<div class="about-section" id="aboutus">
+  <h1 style="font-size:3rem;">About Us</h1>
+  <hr class="hr-content">
+  <p style="font-size: 1.5rem;">
+    READy is a platform that encourages people to buy, read, and share books. The name combines two of our main focuses, "read" which emphasizes the primary aim of our platform, providing readable materials via whatever means that are most convenient for our customers. Convenience leads us to the other focus, "ready" we believe that the best way to acquire customers and retain their trust is by providing them with an outstanding and convenient experience that makes them want to return.</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="rows">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Turki Alzahrani</h2>
+        <p class="title">Student</p>
+        <p>201936550</p>
+        <p>Turki.mw0@gmail.com</p>
+        <a class="button" href = "mailto: Turki.mw0@gmail.com">Contact</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Mostafa Othman</h2>
+        <p class="title">Student</p>
+        <p>201943910</p>
+        <p>mos@example.com</p>
+        <a class="button" href = "mailto: mos@example.com">Contact</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="column">
+    <div class="card">
+
+      <div class="container">
+        <h2>Mohammad Aldosare</h2>
+        <p class="title">Student</p>
+        <p>201924770</p>
+        <p>mo@example.com</p>
+        <a class="button" href = "mailto: mo@example.com">Contact</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Mohammed Alkhanani</h2>
+        <p class="title">Student</p>
+        <p>201954190</p>
+        <p>mo@example.com</p>
+        <a class="button" href = "mailto: mo@example.com">Contact</a>
+      </div>
+    </div>
+
+  </div>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+  <!-- custom js file link  -->
+  <script src="/js/javaScript.js"></script>
+
+
+</body>
+</html>
