@@ -69,7 +69,18 @@ function ensureAuthenticated(req, res, next) {
 
   app.get('/', ensureAuthenticated, async (req, res) => {
     // console.log(req.user instanceof mongoose.Model);
-    res.render('home', { user: req.user });
+    
+    Book.find({})
+    .then((books) => {
+      res.render('home', {
+        user: req.user,
+        books: books
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
   });
   
 app.get('/login', (req, res) => {
@@ -149,7 +160,13 @@ app.get('/books', (req, res) => {
 })
 
 app.get('/book', (req, res) => {
-    res.render('book.ejs')
+  const data = {
+    img: req.query.img,
+    name: req.query.name,
+    price: req.query.price,
+    rate: req.query.rate,
+  };
+  res.render('book.ejs', { data });
 })
 
 app.get('/logout', function(req, res, next) {
@@ -158,6 +175,7 @@ app.get('/logout', function(req, res, next) {
       res.redirect('/login');
     });
   });
+  
   
 app.listen(port, () => {
     console.log("Server is listening to port  " + port)
