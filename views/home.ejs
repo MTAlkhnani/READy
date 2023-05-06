@@ -107,8 +107,16 @@
                             <div class="price"><p><%= book.rateOfBook %> <span class="rating-stars">
                                 <i class="fa fa-star"></i>
                               </span></p></div>
-                            <a href="#" class="btn cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                            <a href="#" class="btn wishlist-btn"><i class="far fa-heart"></i></a>
+                            <form action="/cart" method="post">
+                              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                            <button type="submit" class="btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </form>
+                            <form class="bb1" action="/wishlist" method="post">
+                              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                            <button  type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                          </form>
                         </div>
                     </a>
                 </div>
@@ -148,8 +156,16 @@
                             <div class="price"><p><%= book.rateOfBook %> <span class="rating-stars">
                                 <i class="fa fa-star"></i>
                               </span></p></div>
-                            <a href="#" class="btn cart-btn"><i class="fas fa-shopping-cart"></i></a>
-                            <a href="#" class="btn wishlist-btn"><i class="far fa-heart"></i></a>
+                            <form action="/cart" method="post">
+                              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                            <button type="submit" class="btn cart-btn" ><i class="fas fa-shopping-cart" ></i></button>
+                          </form>
+                          <form action="/wishlist" method="post">
+                            <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                              <button type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                          </form>
                         </div>
                     </a>
                 </div>

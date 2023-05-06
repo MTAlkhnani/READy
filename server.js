@@ -9,9 +9,10 @@ const port = 3001
 const mongoose = require('mongoose')
 const User = require('./models/user')
 const Book = require('./models/book')
+const user = require('./models/user')
 
 uri = 'mongodb+srv://admin:admin@cluster0.moh5hyj.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(uri);
+mongoose.connect(uri,{useNewUrlParser: true});
 
 initilaizePassport(passport, async (email) => {
    const result = await User.find({email: email}) 
@@ -145,6 +146,56 @@ app.get('/wishlist', ensureAuthenticated, (req, res) => {
 app.get('/cart', ensureAuthenticated, (req, res) => {
     res.render('cart.ejs')
 })
+app.post('/cart', (req, res) => {
+  console.log(req.body.user_email);
+  let book;
+  Book.find({ nameOfBook: req.body.book_name}).then(books => {
+  book = books[0];
+  User.findOne({ email: req.body.user_email}).then(user => {
+    console.log(user);
+    console.log(book);
+    User.updateOne({email: req.body.user_email},{$addToSet:{ orders : book}}).then(function (sucess,error) {
+      if (error) {
+          console.log("error");
+      } else {
+          console.log(sucess);
+      }
+    }
+    )
+    
+    
+  })
+ 
+})
+
+  res.redirect('/');
+})
+app.post('/wishlist', (req, res) => {
+  console.log(req.body.user_email);
+  let book;
+  Book.find({ nameOfBook: req.body.book_name}).then(books => {
+  book = books[0];
+  User.findOne({ email: req.body.user_email}).then(user => {
+    console.log(user);
+    console.log(book);
+    User.updateOne({email: req.body.user_email},{$addToSet:{ wishlist : book}}).then(function (sucess,error) {
+      if (error) {
+          console.log("error");
+      } else {
+          console.log(sucess);
+      }
+    }
+    )
+    
+    
+  })
+ 
+})
+
+  res.redirect('/');
+})
+
+
 
 app.get('/books', (req, res) => {
     Book.find({})
