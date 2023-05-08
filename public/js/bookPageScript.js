@@ -80,3 +80,22 @@ for (let i = 0; i < ratingStarsElems.length; i++) {
     }
   })
 }
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+const BookName = urlParams.get('name')
+document.getElementById('bookName').innerHTML = BookName;
+
+
+const BookImage = urlParams.get('img')
+console.log(BookImage)
+const bookImage = document.querySelector('.book-image');
+bookImage.setAttribute('src', BookImage);
+
+const BookPrice = urlParams.get('price')
+
+// price
+const bookPrice = document.querySelector('.price');
+bookPrice.textContent = '$' + BookPrice;
+

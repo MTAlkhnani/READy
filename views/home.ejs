@@ -97,7 +97,7 @@
             <% books.forEach(book => { %>
                 <div class="swiper-slide box">
 
-                    <a href="Book">
+                    <a href="Book?img=<%= book.imgSrc %>&name=<%= book.nameOfBook %>&price=<%=book.priceOfBook %>&rate=<%= book.rateOfBook %>">
                         <div class="image">
                             <img src="<%= book.imgSrc %>" alt="">
                         </div>
