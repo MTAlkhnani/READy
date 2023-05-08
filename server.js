@@ -10,6 +10,7 @@ const mongoose = require('mongoose')
 const User = require('./models/user')
 const Book = require('./models/book')
 const user = require('./models/user')
+const book = require('./models/book')
 
 uri = 'mongodb+srv://admin:admin@cluster0.moh5hyj.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(uri,{useNewUrlParser: true});
@@ -141,10 +142,38 @@ app.get('/contactUs', (req, res) => {
 })
 
 app.get('/wishlist', ensureAuthenticated, (req, res) => {
-    res.render('wishlist.ejs')
+  User.findOne({email: req.user.email})
+    .then((user) => {
+      console.log(req.user.orders);
+      // let var1=0;
+      // user.orders.forEach(book => {
+      //   var1+= parseFloat(book.priceOfBook);})
+        // console.log(var1);
+      res.render('wishlist.ejs', {
+        wishlist: user.wishlist, user:req.user});
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+    
 })
 app.get('/cart', ensureAuthenticated, (req, res) => {
-    res.render('cart.ejs')
+    // res.render('cart.ejs')
+    User.findOne({email: req.user.email})
+    .then((user) => {
+      console.log(req.user.orders);
+      let var1=0;
+      user.orders.forEach(book => {
+        var1+= parseFloat(book.priceOfBook);})
+        // console.log(var1);
+      res.render('cart.ejs', {
+        orders: user.orders, var1:var1, user:req.user});
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 })
 app.post('/cart', (req, res) => {
   console.log(req.body.user_email);
@@ -152,8 +181,8 @@ app.post('/cart', (req, res) => {
   Book.find({ nameOfBook: req.body.book_name}).then(books => {
   book = books[0];
   User.findOne({ email: req.body.user_email}).then(user => {
-    console.log(user);
-    console.log(book);
+    // console.log(user);
+    // console.log(book);
     User.updateOne({email: req.body.user_email},{$addToSet:{ orders : book}}).then(function (sucess,error) {
       if (error) {
           console.log("error");
@@ -170,14 +199,81 @@ app.post('/cart', (req, res) => {
 
   res.redirect('/');
 })
+
+
+app.post('/delete', ensureAuthenticated, (req, res) => {
+  let book;
+  // const userId = req.params.userId;
+  // let itemId = req.params.itemId;
+  
+  Book.find({ nameOfBook: req.body.book_name}).then(books => {
+    book = books[0];
+    User.findOne({ email: req.body.user}).then(user => {
+      // console.log(user);
+      // console.log(book);
+
+      // User.updateOne({email: user.email},{$pop:{ orders : books}}).then(function (error,sucess) {
+      //   if (error) {
+      //       console.log(error);
+      //   } else {
+      //       console.log("sucsses");
+      //   }
+      // }
+      // )
+      console.log(book +"will be deleted");
+      user.orders.pull(book);
+      
+      user.save();
+      res.redirect('/cart');
+      
+    })
+   
+  })
+      
+      
+    })
+
+
+    app.post('/deletefW', ensureAuthenticated, (req, res) => {
+      let book;
+      // const userId = req.params.userId;
+      // let itemId = req.params.itemId;
+      
+      Book.find({ nameOfBook: req.body.book_name}).then(books => {
+        book = books[0];
+        User.findOne({ email: req.body.user}).then(user => {
+          // console.log(user);
+          // console.log(book);
+    
+          // User.updateOne({email: user.email},{$pop:{ orders : books}}).then(function (error,sucess) {
+          //   if (error) {
+          //       console.log(error);
+          //   } else {
+          //       console.log("sucsses");
+          //   }
+          // }
+          // )
+          console.log(book +"will be deleted");
+          user.wishlist.pull(book);
+          
+          user.save();
+          res.redirect('/wishlist');
+          
+        })
+       
+      })
+          
+          
+        })
+
 app.post('/wishlist', (req, res) => {
   console.log(req.body.user_email);
   let book;
   Book.find({ nameOfBook: req.body.book_name}).then(books => {
   book = books[0];
   User.findOne({ email: req.body.user_email}).then(user => {
-    console.log(user);
-    console.log(book);
+    // console.log(user);
+    // console.log(book);
     User.updateOne({email: req.body.user_email},{$addToSet:{ wishlist : book}}).then(function (sucess,error) {
       if (error) {
           console.log("error");

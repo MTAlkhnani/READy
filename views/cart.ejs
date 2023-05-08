@@ -62,47 +62,43 @@
     <h1>Shopping Cart</h1>
     <hr class="hr-content">
     <div class="cart-items">
+      <% orders.forEach(book => { %>
       <div class="cart-item">
-        <div class="cart-item-image"><img src="https://via.placeholder.com/150x150.png" alt="Product Image"></div>
+        <div class="cart-item-image"><img src="<%= book.imgSrc %>" alt="Product image"></div>
         <div class="cart-item-info">
-          <p class="cart-item-name">Product Name</p>
-          <p class="cart-item-price">$10</p>
+          <!-- <p class="cart-item-category"><%= user.name %></p> -->
+          <p class="cart-item-name"><%= book.nameOfBook %></p>
+          <p class="cart-item-price"><%=book.priceOfBook %></p>
           <div class="cart-item-quantity">
             <button class="quantity-btn minus-btn">-</button>
             <input type="text" class="quantity-input" value="1">
             <button class="quantity-btn plus-btn">+</button>
           </div>
         </div>
-        <div class="cart-item-remove"><button class="remove-btn">Remove</button></div>
+        <div class="cart-item-remove">
+          <form action="/delete" method="post">
+          <input type="hidden" name="user" value="<%= user.email %>">
+          <input type="hidden" name="book_name" value="<%=book.nameOfBook%>">
+          <button class="remove-btn" type="submit">Remove</button>
+          </form>
+        </div>
         
       </div>
-      
-      <div class="cart-item">
-        <div class="cart-item-image"><img src="https://via.placeholder.com/150x150.png" alt="Product Image"></div>
-        <div class="cart-item-info">
-          <p class="cart-item-name">Product Name</p>
-          <p class="cart-item-price">$20</p>
-          <div class="cart-item-quantity">
-            <button class="quantity-btn minus-btn">-</button>
-            <input type="text" class="quantity-input" value="1">
-            <button class="quantity-btn plus-btn">+</button>
-          </div>
-        </div>
-        <div class="cart-item-remove"><button class="remove-btn">Remove</button></div>
-      </div>
+      <% }) %>
+
     </div>
     <hr class="hr-content">
     <div class="cart-shipping">
         <p>Shipping: $20</p>
         <div class="book-type">
           <p>Book type:</p>
-          <label><input type="radio" name="book-type" value="physical" checked> Physical book</label>
-          <label><input type="radio" name="book-type" value="ebook" > E-book</label>
+          <label><input type="radio" name="book-type" value="physical" > Physical book</label>
+          <label><input type="radio" name="book-type" value="ebook" checked> E-book</label>
           
         </div>
       </div>
       <div class="cart-total">
-        <p>Total: $50.00</p>
+        <p>Total: <%= var1 %></p>
         <button id="credit-card-button">Purchase</button>
         <div id="credit-card-modal">
           <div class="modal-header">
@@ -187,6 +183,7 @@ purchaseBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
+
 </script>
 
 </body>

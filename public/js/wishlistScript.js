@@ -6,15 +6,15 @@ document.querySelector('#search-btn').onclick = () => {
 
 
 // Add event listener to the remove buttons
-const removeBtns = document.querySelectorAll('.cart-item-remove button')
+// const removeBtns = document.querySelectorAll('.cart-item-remove button')
 
-removeBtns.forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    const cartItem = btn.parentElement.parentElement.parentElement.parentElement
-    cartItem.remove()
-    updateCartTotal()
-  })
-})
+// removeBtns.forEach(function (btn) {
+//   btn.addEventListener('click', function () {
+//     const cartItem = btn.parentElement.parentElement.parentElement.parentElement
+//     cartItem.remove()
+//     updateCartTotal()
+//   })
+// })
 
 // Function to update the cart total
 function updateCartTotal () {
