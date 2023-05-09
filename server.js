@@ -13,7 +13,7 @@ const user = require('./models/user')
 const book = require('./models/book')
 
 uri = 'mongodb+srv://admin:admin@cluster0.moh5hyj.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(uri,{useNewUrlParser: true});
+mongoose.connect(uri, {useNewUrlParser: true});
 
 initilaizePassport(passport, async (email) => {
    const result = await User.find({email: email}) 
@@ -69,7 +69,7 @@ function ensureAuthenticated(req, res, next) {
     }
   }
 
-  app.get('/', ensureAuthenticated, async (req, res) => {
+  app.get('/', ensureAuthenticated,async (req, res) => {
     // console.log(req.user instanceof mongoose.Model);
     
     Book.find({})
@@ -124,7 +124,6 @@ app.post('/register', async (req, res) => {
                 orders: [],
                 wishlist: []
                 })
-        
                 await user.save() // saving the user to DB
         
                 console.log("user add to the database")
@@ -180,6 +179,7 @@ app.post('/cart', (req, res) => {
   let book;
   Book.find({ nameOfBook: req.body.book_name}).then(books => {
   book = books[0];
+  console.log(book)
   User.findOne({ email: req.body.user_email}).then(user => {
     // console.log(user);
     // console.log(book);
@@ -306,16 +306,22 @@ app.get('/books', (req, res) => {
     });
 })
 
-app.get('/book', (req, res) => {
-  const data = {
-    img: req.query.img,
-    name: req.query.name,
-    price: req.query.price,
-    rate: req.query.rate,
-  };
-  res.render('book.ejs', { data });
-})
+// app.get('/book', (req, res) => {
 
+//   res.render('book.ejs', { data });
+// })
+app.get('/book/:id', (req, res) => {
+  const { id } = req.params;
+
+  Book.findById(id)
+    .then((book) => {
+      res.render('Book.ejs', {book});
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+})
 app.get('/logout', function(req, res, next) {
     req.logout(function(err) {
       if (err) { return next(err); }

@@ -68,7 +68,7 @@
         <div class="cart-item-info">
           <!-- <p class="cart-item-category"><%= user.name %></p> -->
           <p class="cart-item-name"><%= book.nameOfBook %></p>
-          <p class="cart-item-price"><%=book.priceOfBook %></p>
+          <p class="cart-item-price">$<%=book.priceOfBook %></p>
           <div class="cart-item-quantity">
             <button class="quantity-btn minus-btn">-</button>
             <input type="text" class="quantity-input" value="1">
@@ -98,7 +98,7 @@
         </div>
       </div>
       <div class="cart-total">
-        <p>Total: <%= var1 %></p>
+        <p>Total: $<%= var1 %></p>
         <button id="credit-card-button">Purchase</button>
         <div id="credit-card-modal">
           <div class="modal-header">

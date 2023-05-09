@@ -71,7 +71,7 @@
         <div class="row">
 
           <div class="content">
-              <h3>Welcome <%= user.name %> </h3>
+              <h3>Welcome to READy </h3>
               <p>At READy, we believe that there's nothing quite like the feeling of getting lost in a good book. That's why we've curated an extensive collection of literature, from classic novels to modern bestsellers, to ensure that every reader can find something that speaks to them. </p>
               <a href="Books" class="btn">shop now</a>
           </div>
@@ -99,8 +99,8 @@
             <% books.forEach(book => { %>
                 <div class="swiper-slide box">
 
-                    <a href="Book?img=<%= book.imgSrc %>&name=<%= book.nameOfBook %>&price=<%=book.priceOfBook %>&rate=<%= book.rateOfBook %>">
-                        <div class="image">
+                  <a href="Book/<%= book._id %>">
+                    <div class="image">
                             <img src="<%= book.imgSrc %>" alt="">
                         </div>
                         <div class="content">
@@ -148,8 +148,8 @@
             <% books.forEach(book => { %>
                 <div class="swiper-slide box">
 
-                    <a href="Book">
-                        <div class="image">
+                  <a href="Book/<%= book._id %>">
+                    <div class="image">
                             <img src="<%= book.imgSrc %>" alt="">
                         </div>
                         <div class="content">

@@ -6,6 +6,10 @@ const bookSchema = new mongoose.Schema({
     rateOfBook: Number,
     descOfBook: String,
     imgSrc: String,
+    authorOfBook: String,
+    bookFormat: String,
+    genreOfBook: String,
+    pageNumOfBook: String,
 })
 
 // const userSchema = new mongoose.Schema({

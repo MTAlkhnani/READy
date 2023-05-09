@@ -117,7 +117,7 @@
             <div class="row">
               <% books.forEach(book => { %>
                 <div class="box">
-                  <a href="Book?img=<%= book.imgSrc %>&name=<%= book.nameOfBook %>&price=<%=book.priceOfBook %>&rate=<%= book.rateOfBook %>">
+                  <a href="Book/<%= book._id %>">
                     <div class="box-top"><img src="<%= book.imgSrc %>" alt=""></div>
                     <div class="box-bottom">
                       <div class="box-info">
