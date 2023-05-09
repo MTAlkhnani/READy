@@ -21,10 +21,13 @@
         <input type="password" id="password" name="password" placeholder="Create password" required>
       </div>
       <div class="input-box">
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required>
+      </div>
+      <div class="input-box">
         <input type="number" id="phone" name="phone" placeholder="Enter your phone number" required>
       </div>
       <div class="policy">
-        <input type="checkbox">
+        <input type="checkbox" required>
         <h3>I accept all terms & condition</h3>
       </div>
       <div class="input-box button">
@@ -38,5 +41,21 @@
       <% } %>
     </form>
   </div>
+  <script>
+    // Add client-side validation for password and confirm-password fields
+    const passwordField = document.getElementById('password');
+    const confirmPasswordField = document.getElementById('confirm-password');
+    
+    function validatePasswords() {
+      if (passwordField.value !== confirmPasswordField.value) {
+        confirmPasswordField.setCustomValidity("Passwords do not match.");
+      } else {
+        confirmPasswordField.setCustomValidity("");
+      }
+    }
+    
+    passwordField.addEventListener("change", validatePasswords);
+    confirmPasswordField.addEventListener("keyup", validatePasswords);
+  </script>
 </body>
 </html>
