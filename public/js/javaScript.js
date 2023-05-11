@@ -1,11 +1,10 @@
 function search_books(sourceElement){
   let searchBox = document.getElementById("search-box");
 
-// get the text entered by the user
-let searchText = searchBox.value;
-alert(searchText);
+  // get the text entered by the user
+  let searchText = searchBox.value;
+  alert(searchText);
 }
-
 
 var swiper = new Swiper(".books-slider", {
   loop:true,
@@ -54,8 +53,18 @@ var swiper = new Swiper(".featured-slider", {
     },
   },
 });
-const searchForm = document.querySelector('.search-form')
 
+const searchForm = document.querySelector('.search-form');
 document.querySelector('#search-btn').onclick = () => {
   searchForm.classList.toggle('active')
-}
+};
+
+// Find all the cart buttons in the new releases section
+const newReleasesCartBtns = document.querySelectorAll('#newRealses .cart-btn');
+
+// Add a click event listener to each button
+newReleasesCartBtns.forEach(button => {
+  button.addEventListener('click', () => {
+    alert('New book added to cart!');
+  });
+});
