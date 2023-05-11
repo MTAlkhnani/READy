@@ -37,10 +37,7 @@
             <div id="search-btn" class="fas fa-search"></div>
             <a href="wishlist" class="fas fa-heart"></a>
             <a href="cart" class="fas fa-shopping-cart"></a>
-            <a id="login-btn" class="#" href="login">
-              Sign Out
-            </a> <!-- Because of ejs these has to be changed... from login.ejs to just login -->
-        </div>
+            <a id="login-btn" class="fas fa-user" href="login"></a>
         </div>
 
     </section>
@@ -72,47 +69,50 @@
             <div class="filter">
                 <h2>Filter Result</h2>
                 <div class="div-hr"></div>
-                <div class="summary-price">
-                    <details>
-                        <summary><span style="font-size: 16px;">Sort</span></summary>
-                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Price: Low to High</span><br>
-                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Price: High to Low</span><br> 
-                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Rate: Low to High</span><br>
-                        <input type="radio" style="margin: 3px;" name="Sort"><span style="font-size: 16px;">Rate: High to Low</span><br>
-                    </details>
-                </div>
+                <form id="sort-form" action="/sort" method="post">
+                  <div class="summary-price">
+                      <details>
+                          <summary><span style="font-size: 16px;">Sort</span></summary>
+                          <input type="radio" style="margin: 3px;" name="sort" value="Price: Low to High"><span style="font-size: 16px;">Price: Low to High</span><br>
+                          <input type="radio" style="margin: 3px;" name="sort" value="Price: High to Low"><span style="font-size: 16px;">Price: High to Low</span><br> 
+                          <input type="radio" style="margin: 3px;" name="sort" value="Rate: Low to High"><span style="font-size: 16px;">Rate: Low to High</span><br>
+                          <input type="radio" style="margin: 3px;" name="sort" value="Rate: High to Low"><span style="font-size: 16px;">Rate: High to Low</span><br>
+                      </details>
+                  </div>
+              </form>
                 <div class="div-hr"></div>
-                <div class="summary-rating">
-    
-                    <details>
-                        <summary><span style="font-size: 16px;">rating</span></summary>
-                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                <form id="rate-form" action="/sort" method="post">
+                  <div class="summary-rating">
+                      <details>
+                          <summary><span style="font-size: 16px;">rating</span></summary>
+                          <input type="radio" style="margin: 3px;" name="rate" value="5"><span class="rating-stars">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
                           </span><br>
-                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                          <input type="radio" style="margin: 3px;" name="rate" value="4"><span class="rating-stars">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>+
                           </span><br> 
-                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                          <input type="radio" style="margin: 3px;" name="rate" value="3"><span class="rating-stars">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>+
                           </span><br>
-                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                          <input type="radio" style="margin: 3px;" name="rate" value="2"><span class="rating-stars">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>+
                           </span><br>
-                        <input type="radio" style="margin: 3px;" name="Rate"><span class="rating-stars">
-                            <i class="fa fa-star"></i>
+                          <input type="radio" style="margin: 3px;" name="rate" value="1"><span class="rating-stars">
+                              <i class="fa fa-star"></i>+
                           </span>
-                    </details>
-                </div>
+                      </details>
+                  </div>
+              </form>
             </div>
         </div>
         
@@ -176,7 +176,30 @@
               margin-right: 5px;
             }
           </style>
+<script>
+      // get the form element
+      let form1 = document.getElementById('sort-form');
+    
+    // add an event listener to the radio buttons to listen for changes in the selected option
+    let sortRadioButtons1 = document.getElementsByName('sort');
+    for (let i = 0; i < sortRadioButtons1.length; i++) {
+        sortRadioButtons1[i].addEventListener('change', function() {
+            // submit the form automatically when a radio button is selected
+            form1.submit();
+        });
+    }
 
+    let form2 = document.getElementById('rate-form');
+    
+    // add an event listener to the radio buttons to listen for changes in the selected option
+    let sortRadioButtons2 = document.getElementsByName('rate');
+    for (let i = 0; i < sortRadioButtons2.length; i++) {
+        sortRadioButtons2[i].addEventListener('change', function() {
+            // submit the form automatically when a radio button is selected
+            form2.submit();
+        });
+    }
+</script>
 <script src="/js/script.js"></script>
 
 </body>

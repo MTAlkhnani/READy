@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const bookSchema = new mongoose.Schema({
     nameOfBook: String,
     priceOfBook: Number,
-    rateOfBook: Number,
+    rateOfBook: Object,
     descOfBook: String,
     imgSrc: String,
     authorOfBook: String,
@@ -28,3 +28,5 @@ const bookSchema = new mongoose.Schema({
 // })
 
 module.exports = Book = mongoose.model("books", bookSchema)
+
+

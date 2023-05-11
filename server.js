@@ -322,6 +322,26 @@ app.get('/book/:id', (req, res) => {
       res.sendStatus(500);
     });
 })
+
+// app.post('/books/:id/rate', (req, res) => {
+//   const { id } = req.params;
+//   const { rating } = req.body;
+
+//   Book.findById(id)
+//     .then((book) => {
+//       // Update the book rating
+//       book.rateOfBook = rating;
+//       return book.save();
+//     })
+//     .then((book) => {
+//       res.redirect(`/books/${book._id}`);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.sendStatus(500);
+//     });
+// });
+
 app.get('/logout', function(req, res, next) {
     req.logout(function(err) {
       if (err) { return next(err); }
@@ -329,7 +349,71 @@ app.get('/logout', function(req, res, next) {
     });
   });
   
-  
+// app.get('/book/rate', (req, res) => {
+//   // rating = req.form['rating']
+//   // console.log(rating)
+//   // rate = req.query.rate
+//   console.log('HKHJAFKFKJSDF')
+// })
+app.post('/sort', async (req, res) => {
+  let selectedOptionSort = req.body.sort;
+  try {
+  if(selectedOptionSort === 'Price: Low to High') {
+      const books = await Book.find({}).sort({ priceOfBook: 1 });
+      res.render('books.ejs', {
+        books: books
+      })
+  } else if(selectedOptionSort === 'Price: High to Low') {
+    const books = await Book.find({}).sort({ priceOfBook: -1 });
+    res.render('books.ejs', {
+      books: books
+    })
+  } else if(selectedOptionSort === 'Rate: Low to High') {
+    const books = await Book.find({}).sort({ rateOfBook: 1 });
+    res.render('books.ejs', {
+      books: books
+    })
+  } else if(selectedOptionSort === 'Rate: High to Low') {
+      // sort by rate high to low
+      const books = await Book.find({}).sort({ rateOfBook: -1 });
+      res.render('books.ejs', {
+        books: books
+      })
+  }
+
+  let selectedRating = req.body.rate;
+  // perform sorting based on the selected rating
+  if(selectedRating === '5') {
+    const books = await Book.find({rateOfBook: {$gte:5}});
+    res.render('books.ejs', {
+      books: books
+    })
+  } else if(selectedRating === '4') {
+    const books = await Book.find({rateOfBook: {$gte:4}});
+    res.render('books.ejs', {
+      books: books
+    })
+  } else if(selectedRating === '3') {
+    const books = await Book.find({rateOfBook: {$gte:3}});
+    res.render('books.ejs', {
+      books: books
+    })
+  } else if(selectedRating === '2') {
+    const books = await Book.find({rateOfBook: {$gte:2}});
+    res.render('books.ejs', {
+      books: books
+    })
+  } else if(selectedRating === '1') {
+    const books = await Book.find({rateOfBook: {$gte:1}});
+    res.render('books.ejs', {
+      books: books
+    })
+  }
+}
+catch(err) {
+  console.error(err)
+}
+})
 app.listen(port, () => {
     console.log("Server is listening to port  " + port)
     console.log("go to browser and type in the url localhost:" + port)

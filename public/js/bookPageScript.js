@@ -26,6 +26,8 @@ productRatingValueElem.innerHTML = productData.rating.toFixed(1)
 
 // Set rating stars based on rating value
 const ratingStarsElems = productRatingStarsElem.querySelectorAll('i')
+
+
 for (let i = 0; i < ratingStarsElems.length; i++) {
   ratingStarsElems[i].addEventListener('click', function () {
     if (productData.rated) {
@@ -98,4 +100,6 @@ for (let i = 0; i < ratingStarsElems.length; i++) {
 // // price
 // const bookPrice = document.querySelector('.price');
 // bookPrice.textContent = '$' + BookPrice;
+
+
 
