@@ -414,6 +414,29 @@ catch(err) {
   console.error(err)
 }
 })
+
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword; // get the search keyword from the query string
+  Book.findOne({nameOfBook: keyword}) // search for books with a title that matches the keyword (case-insensitive)
+    .then(book => {
+      if (book.nameOfBook != null) {
+        res.render('book.ejs', { book }); // render the search results view with the matched books
+      }
+    })
+    .catch(err => {
+      Book.find({})
+      .then((books) => {
+        res.render('books.ejs', {
+          books: books
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+    });
+});
+
 app.listen(port, () => {
     console.log("Server is listening to port  " + port)
     console.log("go to browser and type in the url localhost:" + port)

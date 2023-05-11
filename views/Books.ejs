@@ -28,10 +28,12 @@
 
         <a href="/" class="logo"> <i class="fas fa-book"></i> READy </a>
 
-        <form action="" class="search-form">
-            <input type="search" name="" placeholder="search here..." id="search-box">
+        <form action="/search" method="get" class="search-form">
+          <input type="search" name="keyword" placeholder="search by book name" id="search-box">
+          <button type="submit" class="a">
             <label for="search-box" class="fas fa-search"></label>
-        </form>
+          </button>
+      </form>
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
@@ -130,10 +132,10 @@
                           <i class="fa fa-star"></i>
                         </span></p>
                         <hr class="hr-content">
-                        <button id="bt1" disabled>
+                        <button id="bt1" disabled class="buttoncw">
                           <i class="fa fa-shopping-cart"></i>
                         </button>
-                        <button id="bt2" disabled>
+                        <button id="bt2" disabled class="buttoncw">
                           <i class="fa fa-heart"></i>
                         </button>
                       </div>

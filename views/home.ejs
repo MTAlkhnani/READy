@@ -27,9 +27,11 @@
 
         <a href="/" class="logo"> <i class="fas fa-book"></i> READy </a>
 
-        <form action="" class="search-form">
-            <input type="search" name="" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
+        <form action="/search" method="get" class="search-form">
+            <input type="search" name="keyword" placeholder="search by book name" id="search-box">
+            <button type="submit">
+              <label for="search-box" class="fas fa-search"></label>
+            </button>
         </form>
 
         <div class="icons">

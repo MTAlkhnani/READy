@@ -22,4 +22,4 @@ const userSchema = new mongoose.Schema({
     wishlist: [bookSchema],
 })
 
-module.exports = User = mongoose.model("users", userSchema)
+module.exports = User = mongoose.model("users", userSchema)    
