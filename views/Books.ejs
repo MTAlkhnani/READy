@@ -39,7 +39,9 @@
             <div id="search-btn" class="fas fa-search"></div>
             <a href="wishlist" class="fas fa-heart"></a>
             <a href="cart" class="fas fa-shopping-cart"></a>
-            <a id="login-btn" class="fas fa-user" href="login"></a>
+            <a id="login-btn" class="#" href="login">
+              Sign Out
+            </a> <!-- Because of ejs these has to be changed... from login.ejs to just login -->
         </div>
 
     </section>
@@ -210,6 +212,20 @@ document.querySelector('#search-btn').onclick = () => {
             form2.submit();
         });
     }
+  
+    const cartBtns = document.querySelectorAll('.cart-btn');
+    cartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('New book added to cart!');
+        });
+    });
+
+    const wishlistBtns = document.querySelectorAll('.wishlist-btn');
+    wishlistBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('New book added to wishlist!');
+        });
+    });
 </script>
 
 </body>
