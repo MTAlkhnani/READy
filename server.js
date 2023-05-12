@@ -468,27 +468,46 @@ catch(err) {
 }
 })
 
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword; // get the search keyword from the query string
-  Book.findOne({nameOfBook: keyword}) // search for books with a title that matches the keyword (case-insensitive)
-    .then(book => {
-      if (book.nameOfBook != null) {
-        res.render('book.ejs', { book, user: req.user }); // render the search results view with the matched books
-      }
-    })
-    .catch(err => {
-      Book.find({})
-      .then((books) => {
-        res.render('books.ejs', {
-          books: books,
-          user: req.user
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+// app.get('/search', (req, res) => {
+//   const keyword = req.query.keyword; // get the search keyword from the query string
+//   Book.findOne({nameOfBook: keyword}) // search for books with a title that matches the keyword (case-insensitive)
+//     .then(book => {
+//       if (book.nameOfBook != null) {
+//         res.render('book.ejs', { book, user: req.user }); // render the search results view with the matched books
+//       }
+//     })
+//     .catch(err => {
+//       Book.find({})
+//       .then((books) => {
+//         res.render('books.ejs', {
+//           books: books,
+//           user: req.user
+//         });
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//         res.sendStatus(500);
+//       });
+//     });
+// });
+app.get('/search', async (req, res) => {
+  try {
+    const keyword = req.query.keyword; // get the search keyword from the query string
+    const books = await Book.find({ nameOfBook: { $regex: keyword, $options: 'i' } });
+    if (books.length === 0) {
+      // If no matching book is found, render a view with a message
+      res.render('no_books_found.ejs', { keyword });
+    } else {
+      // If at least one matching book is found, render the 'books' view with the search results
+      res.render('books.ejs', {
+        books: books,
+        user: req.user
       });
-    });
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 });
 
 app.listen(port, () => {
