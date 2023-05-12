@@ -103,7 +103,7 @@
           </div>
           
           <div class="cart-item-move">
-            <form action="/cart" method="post">
+            <form action="/cartfw" method="post">
               <input type="hidden" name="user_email" value="<%=user.email%>" id="">
               <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
               <button type="submit" class="move-btn">Move to Cart</button>
@@ -137,6 +137,19 @@
 document.querySelector('#search-btn').onclick = () => {
   searchForm.classList.toggle('active')
 }
+const cartBtns = document.querySelectorAll('.move-btn');
+    cartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('Book added to cart!');
+        });
+    });
+
+    const wishlistBtns = document.querySelectorAll('.remove-btn');
+    wishlistBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('Book removed from wishlist!');
+        });
+    });
 </script>
 <!-- custom js file link  -->
 <!-- <script src="/js/wishlistScript.js"></script> -->

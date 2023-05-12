@@ -197,8 +197,43 @@ app.post('/cart', (req, res) => {
  
 })
 
-  res.redirect('/');
+res.redirect('back');
+
+  
 })
+
+app.post('/cartfw', (req, res) => {
+  console.log(req.body.user_email);
+  let book;
+  Book.find({ nameOfBook: req.body.book_name}).then(books => {
+  book = books[0];
+  console.log(book)
+  User.findOne({ email: req.body.user_email}).then(user => {
+    // console.log(user);
+    // console.log(book);
+    User.updateOne({email: req.body.user_email},{$addToSet:{ orders : book}}).then(function (sucess,error) {
+      if (error) {
+          console.log("error");
+      } else {
+          console.log(sucess);
+      }
+    }
+    )
+    console.log(book +"will be deleted");
+      user.wishlist.pull(book);
+      
+      user.save();
+      res.redirect('/wishlist');
+    
+  })
+ 
+})
+
+
+  
+})
+
+
 
 
 app.post('/delete', ensureAuthenticated, (req, res) => {
@@ -288,7 +323,7 @@ app.post('/wishlist', (req, res) => {
  
 })
 
-  res.redirect('/');
+res.redirect('back');
 })
 
 

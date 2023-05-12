@@ -101,5 +101,18 @@ for (let i = 0; i < ratingStarsElems.length; i++) {
 // const bookPrice = document.querySelector('.price');
 // bookPrice.textContent = '$' + BookPrice;
 
+const cartBtns = document.querySelectorAll('.cart-btn');
+    cartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('New book added to cart!');
+        });
+    });
+
+    const wishlistBtns = document.querySelectorAll('.wishlist-btn');
+    wishlistBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('New book added to wishlist!');
+        });
+    });
 
 
