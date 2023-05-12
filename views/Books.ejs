@@ -132,12 +132,16 @@
                           <i class="fa fa-star"></i>
                         </span></p>
                         <hr class="hr-content">
-                        <button id="bt1" disabled class="buttoncw">
-                          <i class="fa fa-shopping-cart"></i>
-                        </button>
-                        <button id="bt2" disabled class="buttoncw">
-                          <i class="fa fa-heart"></i>
-                        </button>
+                        <form action="/cart" method="post">
+                          <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                          <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                        <button type="submit" class="btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </form>
+                        <form class="bb1" action="/wishlist" method="post">
+                          <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                          <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                        <button  type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                      </form>
                       </div>
                     </div>
                   </a>
@@ -145,7 +149,7 @@
               <% }) %>
             </div>
           </div>
-          
+
           <style>
             #bt1 {
               background-color: green;
@@ -179,6 +183,11 @@
             }
           </style>
 <script>
+  searchForm = document.querySelector('.search-form')
+
+document.querySelector('#search-btn').onclick = () => {
+  searchForm.classList.toggle('active')
+}
       // get the form element
       let form1 = document.getElementById('sort-form');
     
@@ -202,7 +211,6 @@
         });
     }
 </script>
-<script src="/js/script.js"></script>
 
 </body>
 </html>

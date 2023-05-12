@@ -297,7 +297,8 @@ app.get('/books', (req, res) => {
     Book.find({})
     .then((books) => {
       res.render('books.ejs', {
-        books: books
+        books: books,
+        user: req.user,
       });
     })
     .catch((err) => {
@@ -315,7 +316,7 @@ app.get('/book/:id', (req, res) => {
 
   Book.findById(id)
     .then((book) => {
-      res.render('Book.ejs', {book});
+      res.render('Book.ejs', {book, user: req.user});
     })
     .catch((err) => {
       console.error(err);
@@ -361,23 +362,30 @@ app.post('/sort', async (req, res) => {
   if(selectedOptionSort === 'Price: Low to High') {
       const books = await Book.find({}).sort({ priceOfBook: 1 });
       res.render('books.ejs', {
-        books: books
+        books: books,
+        user: req.user
       })
   } else if(selectedOptionSort === 'Price: High to Low') {
     const books = await Book.find({}).sort({ priceOfBook: -1 });
     res.render('books.ejs', {
-      books: books
+      books: books,
+      user: req.user
+
     })
   } else if(selectedOptionSort === 'Rate: Low to High') {
     const books = await Book.find({}).sort({ rateOfBook: 1 });
     res.render('books.ejs', {
-      books: books
+      books: books,
+      user: req.user
+
     })
   } else if(selectedOptionSort === 'Rate: High to Low') {
       // sort by rate high to low
       const books = await Book.find({}).sort({ rateOfBook: -1 });
       res.render('books.ejs', {
-        books: books
+        books: books,
+        user: req.user
+
       })
   }
 
@@ -386,27 +394,37 @@ app.post('/sort', async (req, res) => {
   if(selectedRating === '5') {
     const books = await Book.find({rateOfBook: {$gte:5}});
     res.render('books.ejs', {
-      books: books
+      books: books,
+      user: req.user
+
     })
   } else if(selectedRating === '4') {
     const books = await Book.find({rateOfBook: {$gte:4}});
     res.render('books.ejs', {
-      books: books
+      books: books,
+      user: req.user
+
     })
   } else if(selectedRating === '3') {
     const books = await Book.find({rateOfBook: {$gte:3}});
     res.render('books.ejs', {
-      books: books
+      books: books,
+      user: req.user
+
     })
   } else if(selectedRating === '2') {
     const books = await Book.find({rateOfBook: {$gte:2}});
     res.render('books.ejs', {
-      books: books
+      books: books,
+      user: req.user
+
     })
   } else if(selectedRating === '1') {
     const books = await Book.find({rateOfBook: {$gte:1}});
     res.render('books.ejs', {
-      books: books
+      books: books,
+      user: req.user
+
     })
   }
 }
@@ -420,14 +438,15 @@ app.get('/search', (req, res) => {
   Book.findOne({nameOfBook: keyword}) // search for books with a title that matches the keyword (case-insensitive)
     .then(book => {
       if (book.nameOfBook != null) {
-        res.render('book.ejs', { book }); // render the search results view with the matched books
+        res.render('book.ejs', { book, user: req.user }); // render the search results view with the matched books
       }
     })
     .catch(err => {
       Book.find({})
       .then((books) => {
         res.render('books.ejs', {
-          books: books
+          books: books,
+          user: req.user
         });
       })
       .catch((err) => {

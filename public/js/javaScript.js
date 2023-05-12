@@ -60,11 +60,20 @@ document.querySelector('#search-btn').onclick = () => {
 };
 
 // Find all the cart buttons in the new releases section
-const newReleasesCartBtns = document.querySelectorAll('#newRealses .cart-btn');
+const newReleasesCartBtns = document.querySelectorAll('#newRealses .cart-btn, #bestsellers .cart-btn');
 
 // Add a click event listener to each button
 newReleasesCartBtns.forEach(button => {
   button.addEventListener('click', () => {
     alert('New book added to cart!');
+  });
+});
+
+const wishlistCartBtns = document.querySelectorAll('#newRealses .wishlist-btn, #bestsellers .wishlist-btn');
+
+// Add a click event listener to each button
+wishlistCartBtns.forEach(button => {
+  button.addEventListener('click', () => {
+    alert('New book added to wishlist!');
   });
 });

@@ -164,3 +164,23 @@ form.addEventListener('submit', (event) => {
   totalPrice.textContent = 'Total: $0.00'
   updateCartTotal()
 })
+
+// box-container
+
+// const CartBtns = document.querySelectorAll('.box-container .cart-btn');
+
+// Add a click event listener to each button
+// CartBtns.forEach(button => {
+//   button.addEventListener('click', () => {
+//     alert('New book added to cart!');
+//   });
+// });
+
+// const WishlistBtns = document.querySelectorAll('.box-container .wishlist-btn');
+
+// // Add a click event listener to each button
+// WishlistBtns.forEach(button => {
+//   button.addEventListener('click', () => {
+//     alert('New book added to wishlist!');
+//   });
+// });

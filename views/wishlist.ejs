@@ -131,9 +131,15 @@
 
 <!-- footer section ends -->
 
+<script>
+  searchForm = document.querySelector('.search-form')
 
+document.querySelector('#search-btn').onclick = () => {
+  searchForm.classList.toggle('active')
+}
+</script>
 <!-- custom js file link  -->
-<script src="/js/wishlistScript.js"></script>
+<!-- <script src="/js/wishlistScript.js"></script> -->
 
 </body>
 </html>

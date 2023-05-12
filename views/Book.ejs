@@ -124,10 +124,16 @@
             <h2 class="book-heading">Price:</h2>
 
             <h3 class="price">$<%= book.priceOfBook %></h3>
-            
-            <button class="btn"><i class="fa fa-shopping-cart"></i></button>
-
-            <button class="btn-wishlist"><i class="fa fa-heart"></i></button>
+            <form action="/cart" method="post">
+              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+            <button type="submit" class="btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </form>
+            <form class="bb1" action="/wishlist" method="post">
+              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+            <button  type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+          </form>
             <div class="product">
                 
                 

@@ -192,40 +192,13 @@
 <script>
 // toggle visibility of modal and add event listener for close button
 const modal = document.getElementById("credit-card-modal");
-const purchaseBtn = document.getElementById("credit-card-button");
-const closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelector(".modal-header .close");
 
-purchaseBtn.addEventListener("click", () => {
-  modal.style.display = "block";
-});
+
 
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
-});
-
-// enable submit button only when all required fields are filled
-const form = document.querySelector("form");
-const submitBtn = document.getElementById("submit-payment-button");
-const firstNameInput = document.getElementById("first-name");
-const lastNameInput = document.getElementById("last-name");
-const cardNumberInput = document.getElementById("card-number");
-const expiryMonthInput = document.getElementById("expiry-month");
-const expiryYearInput = document.getElementById("expiry-year");
-const cvvInput = document.getElementById("cvv");
-
-form.addEventListener("input", () => {
-  if (
-    firstNameInput.value !== "" &&
-    lastNameInput.value !== "" &&
-    cardNumberInput.value !== "" &&
-    expiryMonthInput.value !== "" &&
-    expiryYearInput.value !== "" &&
-    cvvInput.value !== ""
-  ) {
-    submitBtn.disabled = false;
-  } else {
-    submitBtn.disabled = true;
-  }
+  console.log('Hello')
 });
 </script>
 
