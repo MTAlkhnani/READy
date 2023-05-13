@@ -84,7 +84,7 @@
             <div class="filter">
                 <h2>Filter Result</h2>
                 <div class="div-hr"></div>
-                <form id="sort-form" action="/sort" method="post">
+                <form id="sort-form" action="/books/sort" method="post">
                   <div class="summary-price">
                       <details>
                           <summary><span style="font-size: 16px;">Sort</span></summary>
@@ -96,7 +96,7 @@
                   </div>
               </form>
                 <div class="div-hr"></div>
-                <form id="rate-form" action="/sort" method="post">
+                <form id="rate-form" action="/books/sort" method="post">
                   <div class="summary-rating">
                       <details>
                           <summary><span style="font-size: 16px;">rating</span></summary>
@@ -141,7 +141,7 @@
                       <div class="box-info">
                         <p>Name: <%= book.nameOfBook %></p>
                         <p>Price: $<%=book.priceOfBook %></p>
-                        <p><%= book.rateOfBook %> <span class="rating-stars">
+                        <p><%= book.rateOfBook.toFixed(2) %> <span class="rating-stars">
                           <i class="fa fa-star"></i>
                         </span></p>
                         <hr class="hr-content">

@@ -121,7 +121,7 @@
                         <div class="content">
                             <div class="price"><%= book.nameOfBook %></div>
                             <div class="price">$<%=book.priceOfBook %> <span>$ <%=(book.priceOfBook+10).toFixed(2) %></span></div>
-                            <div class="price"><p><%= book.rateOfBook %> <span class="rating-stars">
+                            <div class="price"><p><%= book.rateOfBook.toFixed(2) %> <span class="rating-stars">
                                 <i class="fa fa-star"></i>
                               </span></p></div>
                               <% try{ %>
@@ -187,7 +187,7 @@
                         <div class="content">
                             <div class="price"><%= book.nameOfBook %></div>
                             <div class="price">$<%=book.priceOfBook %> <span>$ <%=(book.priceOfBook+10).toFixed(2) %></span></div>
-                            <div class="price"><p><%= book.rateOfBook %> <span class="rating-stars">
+                            <div class="price"><p><%= book.rateOfBook.toFixed(2) %> <span class="rating-stars">
                                 <i class="fa fa-star"></i>
                               </span></p></div>
                               <% try{ %>

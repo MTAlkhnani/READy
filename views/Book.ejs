@@ -162,13 +162,12 @@
     </form>
     <% } %>
             <div class="product">
-                
-                
                 <div class="product-info">
                     <h2 class="product-name">Give us your opinion</h2>
-                    
+                    <% try{ %>
+                      <% if(user.email != undefined) {%>
                     <div class="product-rating">
-                      <form action="/book/rate" method="get" id="">
+                      <form action="/book/<%= book._id %>/rate" method="post" id="rating-form">
                         <span class="rating-stars">
                           <i class="fa fa-star-o" data-rating="1"></i>
                           <i class="fa fa-star-o" data-rating="2"></i>
@@ -176,39 +175,61 @@
                           <i class="fa fa-star-o" data-rating="4"></i>
                           <i class="fa fa-star-o" data-rating="5"></i>
                         </span>
-                        <span class="rating-value"></span>
+                        <input type="hidden" name="rating" class="rating-value">
                       </form>
-
                     </div>
                     <p class="average-rating"></p>
-                    <p class="success-message" style="display: none;">Product has been successfully rated.</p>
-                    
+                    <p class="success-message" style="display: none;">Product has been successfully rated.</p>  
                 </div>
+                <% } else {%> <form action="/login" method="get">
+                  <div class="product-rating">
+                    <form action="/login" method="get" id="rating-form">
+                      <span class="rating-stars">
+                        <i class="fa fa-star-o" data-rating="1"></i>
+                        <i class="fa fa-star-o" data-rating="2"></i>
+                        <i class="fa fa-star-o" data-rating="3"></i>
+                        <i class="fa fa-star-o" data-rating="4"></i>
+                        <i class="fa fa-star-o" data-rating="5"></i>
+                      </span>
+                      <input type="hidden" name="rating" class="rating-value">
+                    </form>
+                  </div> 
+              </div>
+
+                <% }} catch { %>
+                  <div class="product-rating">
+                    <form action="/login" method="get" id="rating-form">
+                      <span class="rating-stars">
+                        <i class="fa fa-star-o" data-rating="1"></i>
+                        <i class="fa fa-star-o" data-rating="2"></i>
+                        <i class="fa fa-star-o" data-rating="3"></i>
+                        <i class="fa fa-star-o" data-rating="4"></i>
+                        <i class="fa fa-star-o" data-rating="5"></i>
+                      </span>
+                      <input type="hidden" name="rating" class="rating-value">
+                    </form>
+                  </div> 
+              </div>
+                  <% } %>
+
               </div>
         </div>
       </div>
 </main>
 
 <script>
-// var form = document.querySelector('form');
-
-// var stars = document.querySelectorAll('.rating-stars .fa-star-o');
-// const Book = require('./models/book')
-
-// uri = 'mongodb+srv://admin:admin@cluster0.moh5hyj.mongodb.net/?retryWrites=true&w=majority'
-// mongoose.connect(uri, {useNewUrlParser: true});
-// for (var i = 0; i < stars.length; i++) {
-//   stars[i].addEventListener('click', function() {
-//     var rating = this.dataset.rating;
-//     Book.updateOne({_id:<%= book._id %>}, {rating+'': <%= book.rateOfBook %>})
-
-//     // Do something with the rating, such as saving it to a database or displaying it on a page.
-//     // Once you've done something with the rating, you can submit the form by calling the `submit()` method.
-//     console.log(<%= book.priceOfBook %>)
-//     form.submit();
-//   });
-// }
-
+document.addEventListener('DOMContentLoaded', function() {
+  const ratingForm = document.querySelector('#rating-form');
+  const starElements = ratingForm.querySelectorAll('.rating-stars i');
+  starElements.forEach(function(starElement) {
+    starElement.addEventListener('click', function() {
+      const ratingValue = starElement.getAttribute('data-rating');
+      const ratingInput = ratingForm.querySelector('.rating-value');
+      ratingInput.value = ratingValue;
+      ratingForm.submit();
+    });
+  });
+});
 </script>
 <!-- book section ends  -->
 

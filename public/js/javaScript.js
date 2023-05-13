@@ -63,17 +63,17 @@ document.querySelector('#search-btn').onclick = () => {
 const newReleasesCartBtns = document.querySelectorAll('#newRealses .cart-btn, #bestsellers .cart-btn');
 
 // Add a click event listener to each button
-newReleasesCartBtns.forEach(button => {
-  button.addEventListener('click', () => {
-    alert('New book added to cart!');
-  });
-});
+// newReleasesCartBtns.forEach(button => {
+//   button.addEventListener('click', () => {
+//     alert('New book added to cart!');
+//   });
+// });
 
-const wishlistCartBtns = document.querySelectorAll('#newRealses .wishlist-btn, #bestsellers .wishlist-btn');
+// const wishlistCartBtns = document.querySelectorAll('#newRealses .wishlist-btn, #bestsellers .wishlist-btn');
 
-// Add a click event listener to each button
-wishlistCartBtns.forEach(button => {
-  button.addEventListener('click', () => {
-    alert('New book added to wishlist!');
-  });
-});
+// // Add a click event listener to each button
+// wishlistCartBtns.forEach(button => {
+//   button.addEventListener('click', () => {
+//     alert('New book added to wishlist!');
+//   });
+// });

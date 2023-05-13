@@ -13,7 +13,7 @@ const user = require('./models/user')
 const book = require('./models/book')
 
 uri = 'mongodb+srv://admin:admin@cluster0.moh5hyj.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(uri); // {useNewUrlParser: true});
+mongoose.connect(uri, {useNewUrlParser: true});
 
 initilaizePassport(passport, async (email) => {
    const result = await User.find({email: email}) 
@@ -359,24 +359,41 @@ app.get('/book/:id', (req, res) => {
     });
 })
 
-// app.post('/books/:id/rate', (req, res) => {
-//   const { id } = req.params;
-//   const { rating } = req.body;
-
-//   Book.findById(id)
-//     .then((book) => {
-//       // Update the book rating
-//       book.rateOfBook = rating;
-//       return book.save();
-//     })
-//     .then((book) => {
-//       res.redirect(`/books/${book._id}`);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.sendStatus(500);
-//     });
-// });
+app.post('/book/:id/rate', (req, res) => {
+  const { id } = req.params;
+  const { rating } = req.body;
+  console.log(rating)
+  Book.findOne({ _id: id }).then((book) => {
+    var total = parseInt(book.totalRate) + parseInt(rating) 
+    console.log(total) 
+    var index = parseInt(book.index) + 1
+    var result = total/index;
+    console.log(result)
+    Book.updateOne({_id: id}, {$set: {rateOfBook: result, index: index, totalRate: total}}).then(function (sucess,error) {
+      if (error) {
+          console.log("error");
+      } else {
+          console.log(sucess);
+          res.redirect(`/book/${book._id}`);
+      }
+    }
+    )
+  }).catch((err) => {
+    console.error(err);
+    res.sendStatus(500);
+  });
+  // Book.findOneAndUpdate(
+  //   { _id: id },
+  //   { $inc: { totalRate: rating, index: 1 }, $set: { rateOfBook: (this.totalRate + rating) / (this.index + 1)} },
+  //   { new: true }
+  // ).then((book) => {
+  //     res.redirect(`/book/${book._id}`);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //     res.sendStatus(500);
+  //   });
+});
 
 app.get('/logout', function(req, res, next) {
     req.logout(function(err) {
@@ -391,7 +408,7 @@ app.get('/logout', function(req, res, next) {
 //   // rate = req.query.rate
 //   console.log('HKHJAFKFKJSDF')
 // })
-app.post('/sort', async (req, res) => {
+app.post('/books/sort', async (req, res) => {
   let selectedOptionSort = req.body.sort;
   try {
   if(selectedOptionSort === 'Price: Low to High') {
