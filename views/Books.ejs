@@ -84,7 +84,7 @@
             <div class="filter">
                 <h2>Filter Result</h2>
                 <div class="div-hr"></div>
-                <form id="sort-form" action="/books/sort" method="post">
+                <form id="sort-form" action="/sort" method="post">
                   <div class="summary-price">
                       <details>
                           <summary><span style="font-size: 16px;">Sort</span></summary>
@@ -96,7 +96,7 @@
                   </div>
               </form>
                 <div class="div-hr"></div>
-                <form id="rate-form" action="/books/sort" method="post">
+                <form id="rate-form" action="/sort" method="post">
                   <div class="summary-rating">
                       <details>
                           <summary><span style="font-size: 16px;">rating</span></summary>
@@ -240,19 +240,19 @@ document.querySelector('#search-btn').onclick = () => {
         });
     }
   
-    const cartBtns = document.querySelectorAll('.cart-btn');
-    cartBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            alert('New book added to cart!');
-        });
-    });
+    // const cartBtns = document.querySelectorAll('.cart-btn');
+    // cartBtns.forEach(btn => {
+    //     btn.addEventListener('click', () => {
+    //         alert('New book added to cart!');
+    //     });
+    // });
 
-    const wishlistBtns = document.querySelectorAll('.wishlist-btn');
-    wishlistBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            alert('New book added to wishlist!');
-        });
-    });
+    // const wishlistBtns = document.querySelectorAll('.wishlist-btn');
+    // wishlistBtns.forEach(btn => {
+    //     btn.addEventListener('click', () => {
+    //         alert('New book added to wishlist!');
+    //     });
+    // });
 </script>
 
 </body>

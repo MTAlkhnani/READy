@@ -408,7 +408,7 @@ app.get('/logout', function(req, res, next) {
 //   // rate = req.query.rate
 //   console.log('HKHJAFKFKJSDF')
 // })
-app.post('/books/sort', async (req, res) => {
+app.post('/sort', async (req, res) => {
   let selectedOptionSort = req.body.sort;
   try {
   if(selectedOptionSort === 'Price: Low to High') {
