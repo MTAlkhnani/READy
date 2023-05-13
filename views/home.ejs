@@ -38,9 +38,22 @@
             <div id="search-btn" class="fas fa-search"></div>
             <a href="wishlist" class="fas fa-heart"></a>
             <a href="cart" class="fas fa-shopping-cart"></a>
-            <a id="login-btn" class="#" href="login">
-              Sign Out
-            </a> <!-- Because of ejs these has to be changed... from login.ejs to just login -->
+            <% try{ %>
+              <% if(user.email != undefined) {%>
+                <a id="login-btn" class="#" href="/logout">
+                  Sign Out
+                </a> <!-- Because of ejs these has to be changed... from login.ejs to just login -->
+            <% } else {%> 
+              <a id="login-btn" class="#" href="/login">
+                Sign In
+              </a>
+              <% }} catch { %> 
+                <a id="login-btn" class="#" href="/login">
+                  Sign In
+                </a>
+                <% } %>
+              
+
         </div>
 
     </section>
@@ -111,16 +124,33 @@
                             <div class="price"><p><%= book.rateOfBook %> <span class="rating-stars">
                                 <i class="fa fa-star"></i>
                               </span></p></div>
-                            <form action="/cart" method="post">
-                              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
-                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
-                            <button type="submit" class="btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
-                            </form>
-                            <form class="bb1" action="/wishlist" method="post">
-                              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
-                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
-                            <button  type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                              <% try{ %>
+                                <% if(user.email != undefined) {%>
+                                <form action="/cart" method="post">
+                                  <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                                  <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                                <button type="submit" class="btn cart-btn" ><i class="fas fa-shopping-cart" ></i></button>
+                              </form>
+                              <form action="/wishlist" method="post">
+                                <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                                  <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                                  <button type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                              </form>
+                              <% } else {%>
+                                <form action="/login" method="get">
+                                  <button type="submit" class="btn cart-btn" ><i class="fas fa-shopping-cart" ></i></button>
+                                </form>
+                                <form action="/login" method="get">
+                                    <button type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                                </form>
+                              <% }} catch { %>
+                            <form action="/login" method="get">
+                            <button type="submit" class="btn cart-btn" ><i class="fas fa-shopping-cart" ></i></button>
                           </form>
+                          <form action="/login" method="get">
+                              <button type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                          </form>
+                          <% } %>
                         </div>
                     </a>
                 </div>
@@ -160,16 +190,33 @@
                             <div class="price"><p><%= book.rateOfBook %> <span class="rating-stars">
                                 <i class="fa fa-star"></i>
                               </span></p></div>
-                            <form action="/cart" method="post">
-                              <input type="hidden" name="user_email" value="<%=user.email%>" id="">
-                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                              <% try{ %>
+                                <% if(user.email != undefined) {%>
+                                <form action="/cart" method="post">
+                                  <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                                  <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                                <button type="submit" class="btn cart-btn" ><i class="fas fa-shopping-cart" ></i></button>
+                              </form>
+                              <form action="/wishlist" method="post">
+                                <input type="hidden" name="user_email" value="<%=user.email%>" id="">
+                                  <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                                  <button type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                              </form>
+                              <% } else {%>
+                                <form action="/login" method="get">
+                                  <button type="submit" class="btn cart-btn" ><i class="fas fa-shopping-cart" ></i></button>
+                                </form>
+                                <form action="/login" method="get">
+                                    <button type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
+                                </form>
+                              <% }} catch { %>
+                            <form action="/login" method="get">
                             <button type="submit" class="btn cart-btn" ><i class="fas fa-shopping-cart" ></i></button>
                           </form>
-                          <form action="/wishlist" method="post">
-                            <input type="hidden" name="user_email" value="<%=user.email%>" id="">
-                              <input type="hidden" name="book_name" value="<%= book.nameOfBook %>" id="">
+                          <form action="/login" method="get">
                               <button type="submit" class="btn wishlist-btn"><i class="far fa-heart"></i></button>
                           </form>
+                          <% } %>
                         </div>
                     </a>
                 </div>
@@ -241,7 +288,6 @@
 
   </div>
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
   <!-- custom js file link  -->
   <script src="/js/javaScript.js"></script>
 

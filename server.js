@@ -13,7 +13,7 @@ const user = require('./models/user')
 const book = require('./models/book')
 
 uri = 'mongodb+srv://admin:admin@cluster0.moh5hyj.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(uri, {useNewUrlParser: true});
+mongoose.connect(uri); // {useNewUrlParser: true});
 
 initilaizePassport(passport, async (email) => {
    const result = await User.find({email: email}) 
@@ -69,10 +69,10 @@ function ensureAuthenticated(req, res, next) {
     }
   }
 
-  app.get('/', ensureAuthenticated,async (req, res) => {
+  app.get('/', async (req, res) => {
     // console.log(req.user instanceof mongoose.Model);
-    
-    Book.find({})
+    // mongoose.model('books').findOne();
+    await Book.find({})
     .then((books) => {
       res.render('home', {
         user: req.user,
@@ -490,6 +490,7 @@ catch(err) {
 //       });
 //     });
 // });
+
 app.get('/search', async (req, res) => {
   try {
     const keyword = req.query.keyword; // get the search keyword from the query string
